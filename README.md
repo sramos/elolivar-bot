@@ -24,6 +24,8 @@ first?
 - Create bot with [@BotFather](https://telegram.me/BotFather) `unless has_test_bot?`
 - Clone repo.
 - run `./bin/setup`.
+- Create credentials file with your telegram API tokens:
+  `bin/rails `bin/rails credentials:edit`
 - Update `config/secrets.yml` with your bot's token.
 
 ## Run

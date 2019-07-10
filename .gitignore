@@ -17,5 +17,8 @@
 /tmp
 
 spec/examples.txt
-config/secrets.yml
 config/database.yml
+
+# Ignore master key for decrypting credentials and more.
+/config/credentials.yml.enc
+/config/master.key

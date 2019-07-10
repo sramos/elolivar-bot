@@ -8,10 +8,10 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,6 +25,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+gem 'therubyracer'
 
 gem 'telegram-bot', '0.14.0'
 # gem 'telegram-bot', path: '../telegram-bot'
@@ -40,6 +42,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'debbie', '~> 2.0.0'
+
+# Admin
+gem 'rails_admin'
+gem 'rails_admin-i18n'
+gem 'devise'
+gem 'devise-i18n'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,5 +68,3 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
