@@ -25,7 +25,7 @@ COPY . ./
 RUN chmod +x /railsapp/bin/*
 
 # Copy database config file
-COPY config/database.yml.example ./config/database.yml
+COPY config/database.yml.sample ./config/database.yml
 
 # Precompile the Rails assets (with fake connection data)
 RUN bundle exec rake RAILS_ENV=production SECRET_KEY_BASE=blahblahblah assets:clobber
