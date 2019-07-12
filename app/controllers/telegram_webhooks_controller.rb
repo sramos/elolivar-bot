@@ -114,7 +114,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     @telegram_client.update_attributes username: from['username'],
                                        first_name: from['first_name'],
                                        is_bot: from['is_bot'],
-                                       last_seen: Time.now
+                                       updated_at: Time.now
   end
 
   def set_locale

@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2019_07_12_203305) do
     t.string "username"
     t.string "first_name"
     t.boolean "is_bot"
-    t.datetime "last_seen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["telegram_id"], name: "index_clients_on_telegram_id", unique: true
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
