@@ -14,11 +14,10 @@ then
 fi
 
 # If executing bot is defined, do it
-if [ "${ENABLE_WEBHOOK:-false}" == "true" ]
-then
+if [ "${ENABLE_WEBHOOK:-false}" == "true" ]; then
   echo "ENABLING BOT (WEBHOOK)"
   bin/rake telegram:bot:set_webhook
-elif [ "${ENABLE_POOLER:-false}" == "true" ]
+elif [ "${ENABLE_POOLER:-false}" == "true" ]; then
   echo "ENABLING POOLER"
   bin/rake telegram:bot:poller
 fi
