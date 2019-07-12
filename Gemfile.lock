@@ -89,6 +89,7 @@ GEM
       temple (>= 0.8.0)
       tilt
     hirb (0.7.3)
+    hiredis (0.6.3)
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
@@ -197,6 +198,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.2)
     ref (2.0.0)
     remotipart (1.4.3)
     responders (3.0.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   debbie (~> 2.0.0)
   devise
   devise-i18n
+  hiredis
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -295,6 +298,7 @@ DEPENDENCIES
   rails-i18n
   rails_admin
   rails_admin-i18n
+  redis (~> 4.1)
   rspec-its
   rspec-rails (~> 3.5.0)
   sass-rails (~> 5.0)
