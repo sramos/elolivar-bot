@@ -1,8 +1,8 @@
-en:
+es:
   telegram_webhooks:
     action_missing:
-      command: Can not perform %{command}
-      feature: '%{action} feature is not implemented yet'
+      command: No se pudo ejecutar %{command}
+      feature: 'La función %{action} no está implementado aún'
     callback_query:
       alert: This is ALERT-T-T!!!
       no_alert: Simple answer
@@ -38,8 +38,8 @@ en:
       notice: Remembered!
       prompt: What should I remember?
     message:
-      content: 'You wrote: %{text}'
+      content: 'Has escrito: %{text}'
     remind_me:
       nothing: Nothing to remind
     start:
-      content: "Hi there, %{fist_name}!"
+      content: "¡Hola, %{first_name}!" 

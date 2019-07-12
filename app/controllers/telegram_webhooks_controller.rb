@@ -1,8 +1,9 @@
 class TelegramWebhooksController < Telegram::Bot::UpdatesController
   include Telegram::Bot::UpdatesController::MessageContext
+  before_action :get_telegram_client, :set_locale
 
   def start!(*)
-    respond_with :message, text: t('.content')
+    respond_with :message, text: t('.content', first_name: from['first_name'])
   end
 
   def help!(*)
@@ -26,7 +27,10 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   end
 
   def keyboard!(value = nil, *)
-    if value
+    case value
+    when "Today"
+      respond_with :message, text: " #{from.inspect} Today is #{Date.today}"
+    when "Tomorrow"
       respond_with :message, text: t('.selected', value: value)
     else
       save_context :keyboard!
@@ -46,7 +50,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
           {text: t('.alert'), callback_data: 'alert'},
           {text: t('.no_alert'), callback_data: 'no_alert'},
         ],
-        [{text: t('.repo'), url: 'https://github.com/telegram-bot-rb/telegram-bot'}],
+        [{text: t('.repo'), url: 'https://github.com/sramos/elolivar-bot'}],
       ],
     }
   end
@@ -103,5 +107,17 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     else
       respond_with :message, text: t('telegram_webhooks.action_missing.feature', action: action)
     end
+  end
+
+  def get_telegram_client
+    @telegram_client = Client.find_or_create_by telegram_id: from['id']
+    @telegram_client.update_attributes username: from['username'],
+                                       first_name: from['first_name'],
+                                       is_bot: from['is_bot'],
+                                       last_seen: Time.now
+  end
+
+  def set_locale
+    I18n.locale = from['language_code'] || I18n.default_locale
   end
 end
