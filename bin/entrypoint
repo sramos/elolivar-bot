@@ -14,10 +14,13 @@ then
 fi
 
 # If executing bot is defined, do it
-if [ "${ENABLE_BOT:-false}" == "true" ]
+if [ "${ENABLE_WEBHOOK:-false}" == "true" ]
 then
-  echo "ENABLING BOT"
+  echo "ENABLING BOT (WEBHOOK)"
   bin/rake telegram:bot:set_webhook
+elif [ "${ENABLE_POOLER:-false}" == "true" ]
+  echo "ENABLING POOLER"
+  bin/rake telegram:bot:poller
 fi
 
 echo "STARTING DOCKER CMD"
