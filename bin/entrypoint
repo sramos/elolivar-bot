@@ -18,8 +18,8 @@ if [ "${ENABLE_BOT:-false}" == "true" ]
 then
   echo "ENABLING BOT"
   bin/rake telegram:bot:set_webhook
-else
-  echo "BOT DISABLED, RUNNING DOCKER CMD"
-  # Then exec the container's main process (what's set as CMD in the Dockerfile).
-  exec "$@"
 fi
+
+echo "STARTING DOCKER CMD"
+# Then exec the container's main process (what's set as CMD in the Dockerfile).
+exec "$@"
