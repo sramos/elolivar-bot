@@ -54,7 +54,15 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV['REDIS_URI']||"redis://localhost:6379/0/cache", expires_in: 90.minutes}
+  cache_servers = %w(redis://cache-01:6379/0 redis://cache-02:6379/0)
+  config.cache_store = :redis_cache_store, {
+    driver: :hiredis,
+    url: ENV['REDIS_URI']||"redis://localhost:6379/0",
+    connect_timeout:    10,  # Defaults to 20 seconds
+    read_timeout:       0.2, # Defaults to 1 second
+    write_timeout:      0.2, # Defaults to 1 second
+    reconnect_attempts: 1,   # Defaults to 0
+  }
 
   # Enable Bot's session unconditionally.
   config.telegram_updates_controller.session_store = :file_store,
