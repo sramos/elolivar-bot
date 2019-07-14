@@ -27,11 +27,30 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
   end
 
   def keyboard!(value = nil, *)
+    puts "**** Recibimos #{value} del teclado"
     case value
-    when "Today"
-      respond_with :message, text: " #{from.inspect} Today is #{Date.today}"
-    when "Tomorrow"
-      respond_with :message, text: t('.selected', value: value)
+    when "Today", "Hoy"
+      menus = Menu.where(date: Date.today)
+      if menus.any?
+        text = t("messages.today_menu_is") + ":\n"
+        menus.each do |menu|
+          text += menu.menu_type + " -> " + menu.description + "\n"
+        end
+      else
+        text = t("messages.no_menu_for_day", l(Date.today)) + ": "
+      end
+      respond_with :message, text: text
+    when "Tomorrow", "Mañana"
+      menus = Menu.where(date: Date.today + 1.day)
+      if menus.any?
+        text = t("messages.tomorrow_menu_is") + ":\n"
+        menus.each do |menu|
+          text += menu.menu_type + " -> " + menu.description + "\n"
+        end
+      else
+        text = t("messages.no_menu_for_day", l(Date.today)) + ": "
+      end
+      respond_with :message, text: text
     else
       save_context :keyboard!
       respond_with :message, text: t('.prompt'), reply_markup: {

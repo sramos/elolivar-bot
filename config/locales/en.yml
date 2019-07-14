@@ -1,4 +1,8 @@
 en:
+  messages:
+    today_menu_is: Today menu is
+    tomorrow_menu_is: Tomorrow menu is
+    no_menu_for_day: "No menu for %s day"
   telegram_webhooks:
     action_missing:
       command: Can not perform %{command}
@@ -26,8 +30,8 @@ en:
       description: Description
     keyboard:
       buttons:
-        - Today 
-        - Tomorrow 
+        - Today
+        - Tomorrow
         - /cancel
       prompt: 'Select something with keyboard:'
       selected: "You've selected: %{value}"

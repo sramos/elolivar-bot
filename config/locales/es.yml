@@ -1,4 +1,8 @@
 es:
+  messages:
+    today_menu_is: El menú para hoy es
+    tomorrow_menu_is: El menú para mañana es
+    no_menu_for_day: "No hay ningún menú para el día %s"
   telegram_webhooks:
     action_missing:
       command: No se pudo ejecutar %{command}
@@ -26,8 +30,8 @@ es:
       description: Description
     keyboard:
       buttons:
-        - Today 
-        - Tomorrow 
+        - Hoy
+        - Mañana
         - /cancel
       prompt: 'Select something with keyboard:'
       selected: "You've selected: %{value}"
@@ -42,4 +46,4 @@ es:
     remind_me:
       nothing: Nothing to remind
     start:
-      content: "¡Hola, %{first_name}!" 
+      content: "¡Hola, %{first_name}!"
