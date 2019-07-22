@@ -235,6 +235,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple_calendar (2.3.0)
+      rails (>= 3.0)
     spring (2.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -302,6 +304,7 @@ DEPENDENCIES
   rspec-its
   rspec-rails (~> 3.5.0)
   sass-rails (~> 5.0)
+  simple_calendar (~> 2.0)
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)

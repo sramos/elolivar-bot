@@ -1,0 +1,9 @@
+<%= month_calendar events: @menus do |date, menus| %>
+  <%= date %>
+
+  <% menus.each do |menu| %>
+    <div>
+      <%= link_to menu.menu_type, daily_menu_path(type: menu.menu_type, day: menu.date) %>
+    </div>
+  <% end %>
+<% end %>

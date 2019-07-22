@@ -22,4 +22,12 @@ class Menu < ApplicationRecord
       field :description
     end
   end
+
+  # Wrappers for simple_calendar
+  def start_time
+    self.date
+  end
+  def end_time
+    self.date
+  end
 end
