@@ -1,3 +1,5 @@
+This project has moved to https://gitlab.com/sanraro/elolivar-bot
+
 # ElOlivar telegram bot app
 
 
